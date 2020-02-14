@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.img-pointer {
+    cursor: pointer;
+}
+
+.img-sizing {
+    height: 75px;
+    width: 75px;
+}
+
+.bg-black {
+    background-color: black;
+}

@@ -36,9 +36,9 @@ class CarsService {
     let data = await response.json();
     let newCar = new Car(carData);
 
-    let i = store.State.cars.findIndex(c => c._id == newCar._id);
+    let i = store.State.cars.findIndex(c => c._id == data._id);
     if (i != -1) {
-      store.State.cars.splice(i, 1, newCar);
+      store.State.cars.splice(i, 1, data.data);
       store.commit("cars", store.State.cars);
     }
   }

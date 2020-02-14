@@ -1,55 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/style.css" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <button onclick="app.carsController.getCars()">Cars</button>
-    <form id="car-form" onsubmit="app.carsController.createCar()">
-      <input name="_id" type="text" class="d-none" disabled />
-      <div class="form-group">
-        <label for="Make">Make:</label>
-        <input name="Make" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="Model">Model:</label>
-        <input name="Model" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="Year">Year:</label>
-        <input name="Year" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="Price">Price:</label>
-        <input name="Price" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="Description">Description:</label>
-        <textarea
-          name="Description"
-          type="text"
-          class="form-control"
-        ></textarea>
-      </div>
-      <div class="form-group">
-        <label for="ImageURL">Image URL:</label>
-        <input name="ImageURL" type="text" class="form-control" />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-    <div id="cars" class="card-group"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <title>Greg's List</title>
+</head>
 
-    <script src="app/main.js" type="module"></script>
-  </body>
+<body class="container-fluid">
+  <header>
+    <div class="row">
+      <nav class="col-12 navbar navbar-light bg-black text-primary m-auto">
+        <a class="display-1 navbar-brand">
+          <span>
+            <h1><img class="img-sizing img-fluid mr-2" src="assets/sell-card.png" alt="">
+              Greg's List</h1>
+          </span>
+        </a>
+        <span><i class="fa fa-user-circle"></i> Mray</span>
+      </nav>
+    </div>
+  </header>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item active">
+      <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+        aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="cars-tab" onclick="app.carsController.getCars()" data-toggle="tab" href="#cars" role="tab"
+        aria-controls="cars" aria-selected="false">Cars</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="houses-tab" onclick="app.housesController.getHouses()" data-toggle="tab" href="#houses"
+        role="tab" aria-controls="houses" aria-selected="false">Houses</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="jobs-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="jobs"
+        aria-selected="false">Jobs</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+    <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="cars-tab">...</div>
+    <div class="tab-pane fade" id="houses" role="tabpanel" aria-labelledby="houses-tab">...</div>
+    <div class="tab-pane fade" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">...</div>
+  </div>
+  <div class="row" id="listings"></div>
+
+  <!-- <button onclick="app.carsController.getCars()">Cars</button>
+  <form id="car-form" onsubmit="app.carsController.createCar()">
+    <input name="_id" type="text" class="d-none" disabled />
+    <div class="form-group">
+      <label for="Make">Make:</label>
+      <input name="Make" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Model">Model:</label>
+      <input name="Model" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Year">Year:</label>
+      <input name="Year" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Price">Price:</label>
+      <input name="Price" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Description">Description:</label>
+      <textarea name="Description" type="text" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="ImageURL">Image URL:</label>
+      <input name="ImageURL" type="text" class="form-control" />
+    </div>
+    <button type="submit">Submit</button>
+  </form> -->
+  <!-- <div id="cars" class="card-group"></div> -->
+
+  <script src="app/main.js" type="module"></script>
+</body>
+
 </html>
