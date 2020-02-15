@@ -1,55 +1,53 @@
-import CarsService from "../Services/CarsService.js";
+import JobsService from "../Services/JobsService.js";
 import store from "../store.js";
 
 //Private
 function _draw() {
-    let cars = store.State.cars;
+    let jobs = store.State.jobs;
     let template = "";
-    cars.forEach(car => (template += car.Template));
-    document.getElementById("cars").innerHTML = template;
-    console.log(cars);
+    jobs.forEach(job => (template += job.Template));
+    document.getElementById("listings").innerHTML = template;
+    console.log(jobs);
 }
 
 //Public
-export default class CarsController {
+export default class JobsController {
     constructor() {
-        store.subscribe("cars", _draw);
+        store.subscribe("jobs", _draw);
     }
 
-    async getCars() {
+    async getJobs() {
         try {
-            await CarsService.getCars();
+            await JobsService.getJobs();
         } catch (error) {
             console.log(error);
         }
     }
 
-    async createCar() {
+    async createJob() {
         try {
             event.preventDefault();
             let form = event.target;
-            let carData = {
+            let jobData = {
                 // @ts-ignore
-                make: form.Make.value,
+                company: form.Company.value,
                 // @ts-ignore
-                model: form.Model.value,
+                jobTitle: form.JobTitle.value,
                 // @ts-ignore
-                year: form.Year.value,
+                rate: form.Rate.value,
                 // @ts-ignore
-                price: form.Price.value,
+                hours: form.Hours.value,
                 // @ts-ignore
                 description: form.Description.value,
-                // @ts-ignore
-                imgUrl: form.ImageURL.value
             };
 
             // @ts-ignore
             let id = form._id.value;
             if (id) {
-                carData._id = id;
-                await CarsService.updateCar(carData);
+                jobData._id = id;
+                await JobsService.updateCar(jobData);
             } else {
-                await CarsService.createCar(carData);
+                await JobsService.createCar(jobData);
             }
             // @ts-ignore
             form.reset();
@@ -57,37 +55,35 @@ export default class CarsController {
             console.log(error);
         }
     }
-    async editCar(id) {
-        let car = store.State.cars.find(c => c._id == id);
-        let form = document.getElementById("car-form");
+    async editJob(id) {
+        let job = store.State.jobs.find(j => j._id == id);
+        let form = document.getElementById("job-form");
         // @ts-ignore
-        form.Make.value = car.make;
+        form.Company.value = job.company;
         // @ts-ignore
-        form.Model.value = car.model;
+        form.JobTitle.value = job.jobTitle;
         // @ts-ignore
-        form.Year.value = car.year;
+        form.Rate.value = job.rate;
         // @ts-ignore
-        form.Price.value = car.price;
+        form.Hours.value = job.hours;
         // @ts-ignore
-        form.Description.value = car.description;
+        form.Description.value = job.description;
         // @ts-ignore
-        form.ImageURL.value = car.imgUrl;
-        // @ts-ignore
-        form._id.value = car._id;
+        form._id.value = job._id;
     }
 
-    async updateCar() {
+    async updateJob() {
         try {
             // @ts-ignore
-            await CarsService.editCar();
+            await JobsService.editJob();
         } catch (error) {
             console.log(error);
         }
     }
 
-    async deleteCar(id) {
+    async deleteJob(id) {
         try {
-            await CarsService.deleteCar(id);
+            await JobsService.deleteJob(id);
         } catch (error) {
             console.log(error);
         }

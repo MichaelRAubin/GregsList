@@ -1,26 +1,24 @@
-export default class Car {
+export default class Job {
     constructor(data) {
         this._id = data._id;
-        this.make = data.make;
-        this.model = data.model;
-        this.year = data.year;
+        this.company = data.company;
+        this.jobTitle = data.jobTitle;
+        this.rate = data.rate;
+        this.hours = data.hours
         this.description = data.description;
-        this.price = data.price;
-        this.imgUrl = data.imgUrl;
     }
 
     get Template() {
         return /* html */ `
      <div class="col-12 col-md-4 col-lg-3">
         <div class="card">
-            <img src="${this.imgUrl}" class="card-img-top" alt="a car image">
-            <div class="card-body">
-                <div class="card-title">${this.make} - ${this.model}</div>
-                <div class="card-subtitle">${this.price}</div>
+           <div class="card-body">
+                <div class="card-title">${this.company} - ${this.jobTitle}</div>
+                <div class="card-subtitle">${this.rate} - ${this.hours}</div>
                 <p class="card-text">${this.description}</p>
             </div>
-            <button class="btn btn-info" onclick="app.carsController.editCar('${this._id}')">Edit</button>
-            <button class="btn btn-danger" onclick="app.carsController.deleteCar('${this._id}')">Delete</button>
+            <button class="btn btn-info" onclick="app.carsController.editJob('${this._id}')">Edit</button>
+            <button class="btn btn-danger" onclick="app.carsController.deleteJob('${this._id}')">Delete</button>
         </div>
      </div>
         `;

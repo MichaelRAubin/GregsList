@@ -13,7 +13,7 @@ export default class House {
     get Template() {
         return /* html */ `
      <div class="col-12 col-md-4 col-lg-3">
-        <div class="card">
+        <div class="card shadow mt-3">
             <img src="${this.imgUrl}" class="card-img-top" alt="a car image">
             <div class="card-body">
                 <div class="card-title">${this.year} - ${this.bedrooms} - ${this.bathrooms}</div>
