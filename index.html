@@ -11,7 +11,7 @@
   <title>Greg's List</title>
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid bg-secondary">
   <header>
     <div class="row">
       <nav class="col-12 navbar navbar-light bg-black text-primary m-auto">
@@ -25,10 +25,11 @@
       </nav>
     </div>
   </header>
-  <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+
+  <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
     <li class="nav-item active">
-      <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-        aria-selected="true">Home</a>
+      <a class="nav-link" id="home-tab" onload="app.homeController.drawHomePage()" data-toggle="tab" href="#home"
+        role="tab" aria-controls="home" aria-selected="true">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="cars-tab" onclick="app.carsController.getCars()" data-toggle="tab" href="#cars" role="tab"
@@ -44,43 +45,15 @@
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-    <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="cars-tab">...</div>
-    <div class="tab-pane fade" id="houses" role="tabpanel" aria-labelledby="houses-tab">...</div>
-    <div class="tab-pane fade" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">...</div>
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+    <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="cars-tab"></div>
+    <div class="tab-pane fade" id="houses" role="tabpanel" aria-labelledby="houses-tab"></div>
+    <div class="tab-pane fade" id="jobs" role="tabpanel" aria-labelledby="jobs-tab"></div>
   </div>
+  <div class="row" id="form"></div>
   <div class="row" id="listings"></div>
 
-  <!-- <button onclick="app.carsController.getCars()">Cars</button>
-  <form id="car-form" onsubmit="app.carsController.createCar()">
-    <input name="_id" type="text" class="d-none" disabled />
-    <div class="form-group">
-      <label for="Make">Make:</label>
-      <input name="Make" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="Model">Model:</label>
-      <input name="Model" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="Year">Year:</label>
-      <input name="Year" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="Price">Price:</label>
-      <input name="Price" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="Description">Description:</label>
-      <textarea name="Description" type="text" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="ImageURL">Image URL:</label>
-      <input name="ImageURL" type="text" class="form-control" />
-    </div>
-    <button type="submit">Submit</button>
-  </form> -->
-  <!-- <div id="cars" class="card-group"></div> -->
+
 
   <script src="https://kit.fontawesome.com/9c2d120d7c.js" crossorigin="anonymous"></script>
   <script src="app/main.js" type="module"></script>

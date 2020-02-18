@@ -11,7 +11,7 @@ export default class Car {
 
   get Template() {
     return /* html */ `
-     <div class="col-12 col-md-4 col-lg-3">
+    <div class="col-12 col-md-4 col-lg-6">
         <div class="card shadow">
             <img src="${this.imgUrl}" class="card-img-top" alt="a car image">
             <div class="card-body">
@@ -23,6 +23,40 @@ export default class Car {
             <button class="btn btn-danger" onclick="app.carsController.deleteCar('${this._id}')">Delete</button>
         </div>
      </div>
-        `;
+     `;
+  }
+
+  get formTemplate() {
+    return /*html*/ `
+    <div class="col-12 col-md-4 col-lg-6">
+    <form id="form" onsubmit="app.carsController.createCar()">
+    <input name="_id" type="text" class="d-none" disabled />
+    <div class="form-group">
+      <label for="Make">Make:</label>
+      <input name="Make" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Model">Model:</label>
+      <input name="Model" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Year">Year:</label>
+      <input name="Year" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Price">Price:</label>
+      <input name="Price" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="Description">Description:</label>
+      <textarea name="Description" type="text" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="ImageURL">Image URL:</label>
+      <input name="ImageURL" type="text" class="form-control" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+    `;
   }
 }

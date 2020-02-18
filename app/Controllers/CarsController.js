@@ -1,6 +1,7 @@
 import CarsService from "../Services/CarsService.js";
 import store from "../store.js";
 
+
 //Private
 function _draw() {
   let cars = store.State.cars;
@@ -10,10 +11,16 @@ function _draw() {
   console.log(cars);
 }
 
+function _drawForm() {
+  let formTemplate = "";
+  document.getElementById("form").innerHTML = formTemplate;
+}
+
 //Public
 export default class CarsController {
   constructor() {
     store.subscribe("cars", _draw);
+    store.subscribe("cars", _drawForm);
   }
 
   async getCars() {
